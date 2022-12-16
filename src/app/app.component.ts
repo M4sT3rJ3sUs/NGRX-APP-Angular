@@ -1,4 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Store, Action } from '@ngrx/store';
+
+interface AppState{
+  contador: number;
+}
 
 @Component({
   selector: 'app-root',
@@ -6,5 +11,29 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'redux-app';
+
+  @Input () contador: number;
+
+  constructor(private store: Store<{AppState:number}>) {
+  this.contador = 10;
+  this.store.subscribe(state => {
+    this.contador = state.contador;
+    });
+  }
+
+  incrementar() {
+  //this.contador ++;
+  const accion: Action = {
+    type: 'INCREMENTAR'
+    };
+    this.store.dispatch( accion );
+  }
+
+  decrementar() {
+  //this.contador --;
+  const accion: Action = {
+    type: 'DECREMENTAR'
+    };
+    this.store.dispatch( accion );
+  }
 }
