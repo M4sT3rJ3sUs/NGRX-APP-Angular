@@ -14,7 +14,7 @@ export class AppComponent {
 
   @Input () contador: number;
 
-  constructor(private store: Store<{AppState:number}>) {
+  constructor(private store: Store<AppState>) {
   this.contador = 10;
   this.store.subscribe(state => {
     this.contador = state.contador;
