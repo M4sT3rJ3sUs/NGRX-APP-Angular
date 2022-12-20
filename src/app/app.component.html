@@ -1,29 +1,21 @@
-<div class="container">
-    <div class="row text-center">
-        <div class="col">
-            <h2>Pokemon</h2>
-            <h3>{{contador}}</h3>
-        </div>
-    </div>
-
-    <div class="row text-center">
-        <div class="col">
-            <img (click)="incrementar()" src="../assets/plus.png" width="70px" class="btn" alt="">
-            <img (click)="decrementar()" src="../assets/minus.png" width="70px" class="btn" alt="">
-            <!-- <button (click) = "incrementar()" class="btn btn-success"></button>
-            {{" "}}
-            <button (click) = "decrementar()" class="btn btn-danger">Dec</button> -->
-        </div>
-    </div>
-
-    <div *ngIf="contador>0">
-        <app-pokemon [pokemon]="pokemon"></app-pokemon>
-    </div>
-</div>
-<!-- <hr>
 
 <div class="row text-center">
-    <div class="col">
-        <app-hijo [contador] = contador (cambioContador) = "contador = $event"></app-hijo>
-    </div>
-</div> -->
+  <div class="col">
+      <h2>Pokemon</h2>
+      <h3>{{contador}}</h3>
+  </div>
+</div>
+
+<div class="row text-center">
+  <div class="col">
+      <button (click)="incrementar()" class="btn btn-primary">Incrementar</button>
+      <button (click)="decrementar()" class="btn btn-info">Decrementar</button>
+  </div>
+</div>
+
+    <hr>
+
+<div *ngIf="contador>0">
+    <app-pokemon [pokemon]="pokemon"></app-pokemon>
+</div>
+
